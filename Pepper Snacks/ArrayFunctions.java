@@ -280,5 +280,22 @@ public class ArrayFunctions{
 
 
 
+	public static int[] numberToArray(int number){
+
+		String digit = number + "";
+		int[] array = new int[digit.length()];
+
+
+		for(int count = 0; count < digit.length(); count++){
+
+			array[count] = digit.charAt(count);
+
+
+		}
+
+		return array;
+	}
+
+
 
 }
