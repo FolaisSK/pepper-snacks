@@ -154,20 +154,19 @@ public class ArrayFunctions{
 		int newLength = arrOne.length + arrTwo.length;
 		int[] combined = new int[newLength];
 
-		int index = 0;
+		
 		int counter = 0;
-		for(int count = 0; count <= combined.length; count++){
+		for(int count = 0; count < combined.length; count++){
 
-//			combined[index] = arrOne[count];
+			if(count < arrOne.length){
 
-			if(count <= arrOne.length){
+				combined[count] = arrOne[count];
+				
+			}
 
-				combined[index] = arrOne[count];
-				index++;
+			if(count > arrOne.length - 1){
 
-			}else{
-
-				combined[index] = arrTwo[counter];
+				combined[count + 1] = arrTwo[counter];
 				counter++;
 			
 			}
@@ -185,23 +184,24 @@ public class ArrayFunctions{
 
 
 
+
 	public static int[] arrayCombined(int[] arrOne, int[] arrTwo){
 
-		int newLength = arrOne.length + arrTwo.length;
-		int [] output = new int [newLength]; 
+		int [] output = new int [arrOne.length + arrTwo.length]; 
 	
 		int counter = 0;
-		for(int count = 0; count<= newLength; count++){
+		for(int count = 0; count < output.length; count++){
 
-			if(count % 2 != 0){
+			if(count <= arrOne.length - 1){
 
-				output[] = arrOne[counter];
+				output[count] = arrOne[count];
+
+			}
+
+			if(count > arrOne.length - 1){
+
+				output[count] = arrTwo[counter];
 				counter++;
-
-			}else{
-
-				output[] = arrTwo[counter];
-				counter++
 
 			}
 
@@ -214,6 +214,68 @@ public class ArrayFunctions{
 
 
 
+
+
+
+
+	public static int [] combineArray(int[] arrOne, int[] arrTwo){
+
+		int[] newArray = new int[arrOne.length + arrTwo.length];
+
+		int firstArrayCount = 0;
+		int secondArrayCount = 0;
+
+		for(int count = 0; count < newArray.length; count++){
+
+
+			if(firstArrayCount < arrOne.length){
+
+				newArray[count] = arrOne[firstArrayCount];
+				firstArrayCount++;
+
+			}
+
+			if(secondArrayCount < arrTwo.length){
+			
+				newArray[++count] = arrTwo[secondArrayCount];
+				secondArrayCount++;
+
+			}
+
+	
+
+		}
+
+		return newArray;
+
+
+	}
+
+
+
+
+	public static int indexFinder(int[] arr, int number){
+
+		int output = 0;
+		for(int count = 0; count < arr.length; count++){
+
+			if(number == arr[count]){
+
+				output = count;
+
+				return output;
+
+			} else {
+
+				output = -1;
+			}
+
+
+		}		
+
+		return output;
+
+	}
 
 
 
